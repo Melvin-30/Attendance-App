@@ -74,7 +74,24 @@ To enable the version check feature, create the following in your Firestore:
     ```bash
     eas build --platform android --profile preview
     ```
-    *Note: The `--profile preview` is configured to output an `.apk` file instead of an `.aab` file.*
+
+> [!IMPORTANT]
+> **Avoid Launch Crashes**: If you are using the EAS Cloud to build, your `.env` file is NOT uploaded. You MUST add your Firebase keys as **Environment Variables** in the Expo Dashboard.
+> 
+> **How to add in Dashboard:**
+> 1. Go to **Project Settings > Environment Variables**.
+> 2. Add each key from your `.env` file.
+> 3. **Visibility**: Choose "Plain Text" or "Sensitive" (Firebase keys are meant to be public).
+> 4. **Environment**: Select **"All Environments"** (Development, Preview, Production).
+> 
+> Alternatively, use the **CLI**:
+> ```bash
+> eas secret:create --name EXPO_PUBLIC_FIREBASE_API_KEY --value "your_key"
+> # ... Repeat for all keys
+> ```
+
+
+
 
 
 ### 🖥️ Build for Windows (EXE)
